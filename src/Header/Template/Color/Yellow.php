@@ -2,7 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-class Yellow extends BaseColor
+class Yellow extends BaseTemplateColor
 {
 
 }

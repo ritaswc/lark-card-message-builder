@@ -2,7 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-class Wathet extends BaseColor
+class Wathet extends BaseTemplateColor
 {
 
 }

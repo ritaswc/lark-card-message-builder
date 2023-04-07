@@ -2,7 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-class Turquoise extends BaseColor
+class Turquoise extends BaseTemplateColor
 {
 
 }

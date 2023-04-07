@@ -2,7 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-class Purple extends BaseColor
+class Purple extends BaseTemplateColor
 {
 
 }

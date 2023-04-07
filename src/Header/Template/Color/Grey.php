@@ -2,7 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-class Grey extends BaseColor
+class Grey extends BaseTemplateColor
 {
 
 }

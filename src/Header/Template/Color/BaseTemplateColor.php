@@ -2,12 +2,11 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-abstract class BaseColor
+abstract class BaseTemplateColor
 {
     public function getColorString(): string
     {
-        $class = __CLASS__;
-        $arr   = explode('\\', $class);
+        $arr = explode('\\', __CLASS__);
         return strtolower(end($arr));
     }
 }

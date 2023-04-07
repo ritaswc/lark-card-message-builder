@@ -2,7 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Header\Template\Color;
 
-class Carmine extends BaseColor
+class Carmine extends BaseTemplateColor
 {
 
 }
