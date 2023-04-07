@@ -1,0 +1,21 @@
+{
+    "name": "ritaswc/lark-card-message-builder",
+    "description": "Lark/飞书，机器人消息，卡片消息构建工具",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ritaswc\\LarkCardMessageBuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "charles",
+            "email": "ritaswc@163.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    }
+}
