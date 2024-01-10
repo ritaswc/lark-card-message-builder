@@ -2,11 +2,11 @@
 
 namespace Ritaswc\LarkCardMessageBuilder;
 
-use Ritaswc\LarkCardMessageBuilder\Header\Template\Color\BaseTemplateColor;
+use Ritaswc\LarkCardMessageBuilder\Element\BaseElement;
 
 class CardMessageBuilder
 {
-    protected $body = [
+    protected array $body = [
         'header'   => [
             'template' => 'default',
             'title'    => [
@@ -23,9 +23,9 @@ class CardMessageBuilder
         return $this;
     }
 
-    public function setHeaderTemplateColor(BaseTemplateColor $color): CardMessageBuilder
+    public function setHeaderTemplateColor(string $color): CardMessageBuilder
     {
-        $this->body['header']['template'] = $color->getColorString();
+        $this->body['header']['template'] = $color;
         return $this;
     }
 
@@ -33,5 +33,33 @@ class CardMessageBuilder
     {
         $this->body['elements'][] = $element;
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        return $this->build();
+    }
+
+    public function build(): array
+    {
+        return $this->format($this->body);
+    }
+
+    protected function format(array $body): array
+    {
+        $newBody = [];
+        foreach ($body as $k => $v) {
+            if ($v instanceof BaseElement) {
+                $v = $v->toArray();
+            }
+            if (is_callable($v)) {
+                $v = $v();
+            }
+            if (is_array($v)) {
+                $v = $this->format($v);
+            }
+            $newBody[$k] = $v;
+        }
+        return $newBody;
     }
 }
