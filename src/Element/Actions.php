@@ -12,7 +12,7 @@ class Actions extends BaseElement
         ];
     }
 
-    public function addAction(Column $column): ColumnSet
+    public function addAction(Column $column): Actions
     {
         $this->body['columns'][] = $column;
         return $this;

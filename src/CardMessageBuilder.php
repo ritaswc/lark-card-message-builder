@@ -74,6 +74,18 @@ class CardMessageBuilder
         return $this;
     }
 
+    /**
+     * 标题图标
+     * 例如：img_v2_718ccfc6-1180-41d7-a21d-1776dd053c8g
+     * @param string $imageKey
+     * @return $this
+     */
+    public function icon(string $imageKey): CardMessageBuilder
+    {
+        $this->body['icon']['img_key'] = $imageKey;
+        return $this;
+    }
+
     protected function format(array $body): array
     {
         if (count($this->configs)) {

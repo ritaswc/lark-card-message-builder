@@ -7,8 +7,11 @@ use Ritaswc\LarkCardMessageBuilder\Element\Button;
 use Ritaswc\LarkCardMessageBuilder\Element\Column;
 use Ritaswc\LarkCardMessageBuilder\Element\ColumnSet;
 use Ritaswc\LarkCardMessageBuilder\Element\DivMarkdown;
+use Ritaswc\LarkCardMessageBuilder\Element\Fields;
 use Ritaswc\LarkCardMessageBuilder\Element\Hr;
+use Ritaswc\LarkCardMessageBuilder\Element\Image;
 use Ritaswc\LarkCardMessageBuilder\Element\Markdown;
+use Ritaswc\LarkCardMessageBuilder\Element\MultiUrl;
 
 class Tag
 {
@@ -45,5 +48,20 @@ class Tag
     public function button(): Button
     {
         return new Button();
+    }
+
+    public function multiUrl($url): MultiUrl
+    {
+        return new MultiUrl($url);
+    }
+
+    public function fields(): Fields
+    {
+        return new Fields();
+    }
+
+    public function image(string $imageKey, string $alt): Image
+    {
+        return new Image($imageKey, $alt);
     }
 }
