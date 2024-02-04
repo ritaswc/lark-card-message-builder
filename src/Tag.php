@@ -45,22 +45,22 @@ class Tag
         return new Actions();
     }
 
-    public function button(): Button
+    public static function button(): Button
     {
         return new Button();
     }
 
-    public function multiUrl($url): MultiUrl
+    public static function multiUrl($url): MultiUrl
     {
         return new MultiUrl($url);
     }
 
-    public function fields(): Fields
+    public static function fields(): Fields
     {
         return new Fields();
     }
 
-    public function image(string $imageKey, string $alt): Image
+    public static function image(string $imageKey, string $alt): Image
     {
         return new Image($imageKey, $alt);
     }
