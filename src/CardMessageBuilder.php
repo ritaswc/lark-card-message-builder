@@ -45,12 +45,18 @@ class CardMessageBuilder
 
     public function toArray(): array
     {
-        return $this->build();
+        if (count($this->configs)) {
+            $this->body['config'] = $this->configs;
+        }
+        if (count($this->card_link)) {
+            $this->body['card_link'] = $this->card_link;
+        }
+        return $this->format($this->body);
     }
 
     public function build(): array
     {
-        return $this->format($this->body);
+        return $this->toArray();
     }
 
     /**
@@ -90,22 +96,12 @@ class CardMessageBuilder
 
     protected function format(array $body): array
     {
-        if (count($this->configs)) {
-            $this->body['config'] = $this->configs;
-        }
-        if (count($this->card_link)) {
-            $this->body['card_link'] = $this->card_link;
-        }
         $newBody = [];
         foreach ($body as $k => $v) {
-            if ($v instanceof BaseElement) {
+            if ($v instanceof BaseElement || (is_object($v) && method_exists($v, 'toArray'))) {
                 $v = $v->toArray();
-            }
-            if (is_callable($v)) {
-                $v = $v();
-            }
-            if (is_array($v)) {
-                $v = $this->format($v);
+            } else if (is_array($v)) {
+                $this->format($v);
             }
             $newBody[$k] = $v;
         }
