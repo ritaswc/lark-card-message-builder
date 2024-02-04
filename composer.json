@@ -10,12 +10,13 @@
     },
     "authors": [
         {
-            "name": "charles",
+            "name": "Charles Zhu",
             "email": "ritaswc@163.com"
         }
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-json": "*"
     }
 }

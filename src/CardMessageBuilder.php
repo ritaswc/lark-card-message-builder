@@ -6,6 +6,7 @@ use Ritaswc\LarkCardMessageBuilder\Element\BaseElement;
 
 class CardMessageBuilder
 {
+    const TEMPLATES = ['default', 'blue', 'wathet', 'turquoise', 'green', 'yellow', 'orange', 'red', 'carmine', 'violet', 'purple', 'indigo', 'grey'];
     protected array $body = [
         'header'   => [
             'template' => 'default',
@@ -23,9 +24,12 @@ class CardMessageBuilder
         return $this;
     }
 
-    public function setHeaderTemplateColor(string $color): CardMessageBuilder
+    public function template(string $template): CardMessageBuilder
     {
-        $this->body['header']['template'] = $color;
+        if (!in_array($template, static::TEMPLATES)) {
+            $color = array_values(static::TEMPLATES)[0];
+        }
+        $this->body['header']['template'] = $template;
         return $this;
     }
 
