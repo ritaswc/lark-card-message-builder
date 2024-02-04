@@ -100,8 +100,9 @@ class CardMessageBuilder
         foreach ($body as $k => $v) {
             if ($v instanceof BaseElement || (is_object($v) && method_exists($v, 'toArray'))) {
                 $v = $v->toArray();
-            } else if (is_array($v)) {
-                $this->format($v);
+            }
+            if (is_array($v)) {
+                $v = $this->format($v);
             }
             $newBody[$k] = $v;
         }
