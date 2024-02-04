@@ -6,7 +6,7 @@ class Button extends BaseElement
 {
     protected array $values = [];
 
-    const TYPES = ['default', 'primary', 'danger'];
+    const TYPES = ['primary', 'default', 'danger'];
 
     public function __construct()
     {

@@ -8,7 +8,9 @@ class CardMessageBuilder
 {
     protected array $configs   = [];
     protected array $card_link = [];
-    const TEMPLATES = ['default', 'blue', 'wathet', 'turquoise', 'green', 'yellow', 'orange', 'red', 'carmine', 'violet', 'purple', 'indigo', 'grey'];
+
+    const TEMPLATES = ['blue', 'default', 'wathet', 'turquoise', 'green', 'yellow', 'orange', 'red', 'carmine', 'violet', 'purple', 'indigo', 'grey'];
+
     protected array $body = [
         'header'   => [
             'template' => 'default',

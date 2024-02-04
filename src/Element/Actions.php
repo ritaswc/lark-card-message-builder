@@ -7,14 +7,14 @@ class Actions extends BaseElement
     public function __construct()
     {
         $this->body = [
-            'tag'     => 'button',
+            'tag'     => 'action',
             'actions' => [],
         ];
     }
 
-    public function addAction(Column $column): Actions
+    public function addAction(BaseElement $column): Actions
     {
-        $this->body['columns'][] = $column;
+        $this->body['actions'][] = $column;
         return $this;
     }
 }
