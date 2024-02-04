@@ -2,6 +2,8 @@
 
 namespace Ritaswc\LarkCardMessageBuilder;
 
+use Ritaswc\LarkCardMessageBuilder\Element\Actions;
+use Ritaswc\LarkCardMessageBuilder\Element\Button;
 use Ritaswc\LarkCardMessageBuilder\Element\Column;
 use Ritaswc\LarkCardMessageBuilder\Element\ColumnSet;
 use Ritaswc\LarkCardMessageBuilder\Element\DivMarkdown;
@@ -33,5 +35,15 @@ class Tag
     public static function column(): Column
     {
         return new Column();
+    }
+
+    public static function actions(): Actions
+    {
+        return new Actions();
+    }
+
+    public function button(): Button
+    {
+        return new Button();
     }
 }
