@@ -13,4 +13,4 @@ $arr     = $builder->setHeaderTemplateColor('grey')
     ->addElement(Tag::columnSet()->addColumn(
         Tag::column()->addElement(Tag::divMarkdown('内容2-1'))->addElement(Tag::divMarkdown('内容2-1'))))
     ->build();
-file_put_contents('1.json', json_encode($arr, JSON_UNESCAPED_UNICODE));
+file_put_contents('1.json', json_encode($arr, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
