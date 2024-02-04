@@ -2,6 +2,9 @@
 
 Lark/飞书，机器人消息，卡片消息构建工具
 
+## 官方文档
+[点我跳转到：飞书开放平台 - 消息卡片概述](https://open.feishu.cn/document/common-capabilities/message-card/introduction-of-message-cards)
+
 ## 使用示例
 
 ```php
