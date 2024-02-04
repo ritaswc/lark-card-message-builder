@@ -6,6 +6,8 @@ use Ritaswc\LarkCardMessageBuilder\Element\BaseElement;
 
 class CardMessageBuilder
 {
+    protected array $configs   = [];
+    protected array $card_link = [];
     const TEMPLATES = ['default', 'blue', 'wathet', 'turquoise', 'green', 'yellow', 'orange', 'red', 'carmine', 'violet', 'purple', 'indigo', 'grey'];
     protected array $body = [
         'header'   => [
@@ -49,8 +51,37 @@ class CardMessageBuilder
         return $this->format($this->body);
     }
 
+    /**
+     * 配置卡片
+     * https://open.feishu.cn/document/common-capabilities/message-card/message-cards-content/card-structure/card-configuration
+     * @param array $configs
+     * @return $this
+     */
+    public function configs(array $configs): CardMessageBuilder
+    {
+        foreach ($configs as $k => $v) {
+            $this->configs[$k] = $v;
+        }
+        return $this;
+    }
+
+    public function subTitle(string $subTitle): CardMessageBuilder
+    {
+        $this->body['header']['subtitle'] = [
+            'tag'     => 'plain_text',
+            'content' => $subTitle,
+        ];
+        return $this;
+    }
+
     protected function format(array $body): array
     {
+        if (count($this->configs)) {
+            $this->body['config'] = $this->configs;
+        }
+        if (count($this->card_link)) {
+            $this->body['card_link'] = $this->card_link;
+        }
         $newBody = [];
         foreach ($body as $k => $v) {
             if ($v instanceof BaseElement) {
