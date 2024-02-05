@@ -2,7 +2,9 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
-class Button extends BaseElement
+use Ritaswc\LarkCardMessageBuilder\Interfaces\ActionInterface;
+
+class Button extends BaseElement implements ActionInterface
 {
     protected array $values = [];
 
@@ -58,17 +60,19 @@ class Button extends BaseElement
      */
     public function value(array $valueSet): Button
     {
+        if (!isset($this->body['value'])) {
+            $this->body['value'] = [];
+        }
         foreach ($valueSet as $k => $v) {
-            $this->values[$k] = $v;
+            $this->body['value'][$k] = $v;
         }
         return $this;
     }
 
-    public function toArray(): array
+    public function confirm(ButtonConfirm $buttonConfirm): Button
     {
-        if (count($this->values)) {
-            $this->body['value'] = $this->values;
-        }
-        return $this->body;
+        $this->body['confirm'] = $buttonConfirm;
+        return $this;
     }
+
 }

@@ -2,10 +2,13 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
+use Ritaswc\LarkCardMessageBuilder\Interfaces\NoteInterface;
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
+
 /**
  * @doc https://open.feishu.cn/document/common-capabilities/message-card/message-cards-content/image-module
  */
-class Image extends BaseElement
+class Image extends BaseElement implements NoteInterface, TagInterface
 {
     const MODES = ['crop_center', 'fit_horizontal', 'stretch', 'large', 'medium', 'small', 'tiny'];
 

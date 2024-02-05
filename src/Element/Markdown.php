@@ -2,7 +2,9 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
-class Markdown extends BaseElement
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
+
+class Markdown extends BaseElement implements TagInterface
 {
     protected ?bool $isShort = null;
 
@@ -28,20 +30,15 @@ class Markdown extends BaseElement
         return $this;
     }
 
-    public function toArray(): array
+    public function isShort(bool $isShort): Markdown
     {
-        if (is_bool($this->isShort)) {
-            $this->body['is_short'] = $this->isShort;
-        }
-        if (null !== $this->multiUrl) {
-            $this->body['href']['urlVal'] = $this->multiUrl;
-        }
-        return $this->body;
+        $this->body['is_short'] = $this->isShort;
+        return $this;
     }
 
     public function multiUrl(MultiUrl $multiUrl): Markdown
     {
-        $this->multiUrl = $multiUrl;
+        $this->body['href']['urlVal'] = $multiUrl;
         return $this;
     }
 }

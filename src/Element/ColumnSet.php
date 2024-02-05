@@ -8,8 +8,6 @@ class ColumnSet extends BaseElement
     const BACKGROUND_STYLES   = ['default', 'grey'];
     const HORIZONTAL_SPACINGS = ['default', 'small'];
 
-    protected $multiUrl = null;
-
     public function __construct()
     {
         $this->body = [
@@ -56,15 +54,7 @@ class ColumnSet extends BaseElement
 
     public function actionMultiUrl(MultiUrl $multiUrl): ColumnSet
     {
-        $this->multiUrl = $multiUrl;
+        $this->body['action']['multi_url'] = $multiUrl;
         return $this;
-    }
-
-    public function toArray(): array
-    {
-        if (null !== $this->multiUrl) {
-            $this->body['action']['multi_url'] = $this->multiUrl;
-        }
-        return $this->body;
     }
 }

@@ -2,7 +2,9 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
-class Hr extends BaseElement
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
+
+class Hr extends BaseElement implements TagInterface
 {
     public function __construct()
     {

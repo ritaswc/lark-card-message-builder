@@ -2,7 +2,10 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
-class Text extends BaseElement
+use Ritaswc\LarkCardMessageBuilder\Interfaces\NoteInterface;
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
+
+class Text extends BaseElement implements NoteInterface, TagInterface
 {
     public function __construct(string $content, int $lines = 1)
     {

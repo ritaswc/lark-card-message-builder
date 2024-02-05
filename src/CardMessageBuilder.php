@@ -3,6 +3,7 @@
 namespace Ritaswc\LarkCardMessageBuilder;
 
 use Ritaswc\LarkCardMessageBuilder\Element\BaseElement;
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
 
 class CardMessageBuilder
 {
@@ -11,20 +12,20 @@ class CardMessageBuilder
 
     const TEMPLATES = ['blue', 'default', 'wathet', 'turquoise', 'green', 'yellow', 'orange', 'red', 'carmine', 'violet', 'purple', 'indigo', 'grey'];
 
-    protected array $body = [
-        'header'   => [
-            'template' => 'default',
-            'title'    => [
-                'tag'     => 'plain_text',
-                'content' => '大标题',
-            ],
-        ],
-        'elements' => [],
-    ];
+    protected array $body = [];
 
     public function __construct(string $title)
     {
-        $this->body['header']['title']['content'] = $title;
+        $this->body = [
+            'header'   => [
+                'template' => 'default',
+                'title'    => [
+                    'tag'     => 'plain_text',
+                    'content' => $title,
+                ],
+            ],
+            'elements' => [],
+        ];
         return $this;
     }
 
@@ -37,7 +38,7 @@ class CardMessageBuilder
         return $this;
     }
 
-    public function addElement($element): CardMessageBuilder
+    public function addElement(TagInterface $element): CardMessageBuilder
     {
         $this->body['elements'][] = $element;
         return $this;

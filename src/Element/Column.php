@@ -5,8 +5,6 @@ namespace Ritaswc\LarkCardMessageBuilder\Element;
 class Column extends BaseElement
 {
     const WIDTH  = ['auto', 'weighted'];
-    const WEIGHT = ['auto', 'weighted'];
-
     const VERTICAL_ALIGN = ['top', 'center', 'bottom'];
 
     public function __construct()
