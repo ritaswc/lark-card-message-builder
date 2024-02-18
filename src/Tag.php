@@ -15,6 +15,7 @@ use Ritaswc\LarkCardMessageBuilder\Element\Image;
 use Ritaswc\LarkCardMessageBuilder\Element\Markdown;
 use Ritaswc\LarkCardMessageBuilder\Element\MultiUrl;
 use Ritaswc\LarkCardMessageBuilder\Element\Note;
+use Ritaswc\LarkCardMessageBuilder\Element\NoteText;
 use Ritaswc\LarkCardMessageBuilder\Element\Option;
 use Ritaswc\LarkCardMessageBuilder\Element\Overflow;
 use Ritaswc\LarkCardMessageBuilder\Element\SelectStatic;
@@ -89,6 +90,11 @@ class Tag
     public static function note(): Note
     {
         return new Note();
+    }
+
+    public static function noteText(string $content): NoteText
+    {
+        return new NoteText($content);
     }
 
     public static function option(string $text): Option
