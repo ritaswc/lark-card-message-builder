@@ -2,7 +2,9 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
-class ColumnSet extends BaseElement
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
+
+class ColumnSet extends BaseElement implements TagInterface
 {
     const FLEX_MODES          = ['none', 'stretch', 'flow', 'bisect', 'trisect'];
     const BACKGROUND_STYLES   = ['default', 'grey'];

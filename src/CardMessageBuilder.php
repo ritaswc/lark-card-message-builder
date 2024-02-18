@@ -32,7 +32,7 @@ class CardMessageBuilder
     public function template(string $template): CardMessageBuilder
     {
         if (!in_array($template, static::TEMPLATES)) {
-            $color = array_values(static::TEMPLATES)[0];
+            $template = array_values(static::TEMPLATES)[0];
         }
         $this->body['header']['template'] = $template;
         return $this;
