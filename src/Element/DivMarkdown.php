@@ -3,8 +3,9 @@
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
 use Ritaswc\LarkCardMessageBuilder\Interfaces\NoteInterface;
+use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
 
-class DivMarkdown extends BaseElement implements NoteInterface
+class DivMarkdown extends BaseElement implements NoteInterface, TagInterface
 {
     public function __construct(string $content)
     {
