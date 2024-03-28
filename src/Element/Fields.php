@@ -15,5 +15,6 @@ class Fields extends BaseElement
     public function add(BaseElement $element)
     {
         $this->body['fields'][] = $element;
+        return $this;
     }
 }
