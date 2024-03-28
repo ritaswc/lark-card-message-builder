@@ -12,7 +12,7 @@ class Fields extends BaseElement
         ];
     }
 
-    public function add(BaseElement $element)
+    public function add(BaseElement $element): Fields
     {
         $this->body['fields'][] = $element;
         return $this;
