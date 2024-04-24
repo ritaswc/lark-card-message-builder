@@ -7,6 +7,7 @@ Lark/飞书，机器人消息，卡片消息构建工具
 
 ## 使用示例
 
+### 基本字段提醒
 ```php
 
 $cardMessageBuilder = (new CardMessageBuilder('【待审核】4532-有新的资质报告申请提交'))
@@ -22,3 +23,4 @@ $cardBodyArray = $cardMessageBuilder->build();
 file_put_contents('aaa.json', json_encode($cardBodyArray));
 
 ```
+![images/001.png](images/001.png)
