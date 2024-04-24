@@ -23,4 +23,4 @@ $cardBodyArray = $cardMessageBuilder->build();
 file_put_contents('aaa.json', json_encode($cardBodyArray));
 
 ```
-![images/001.png](images/001.png)
+![images/001.png](https://github.com/ritaswc/lark-card-message-builder/blob/main/images/001.png?raw=true)
