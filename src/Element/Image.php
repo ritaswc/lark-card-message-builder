@@ -15,7 +15,7 @@ class Image extends BaseElement implements NoteInterface, TagInterface
     public function __construct(string $imageKey, string $alt)
     {
         $this->body = [
-            'tag'     => 'image',
+            'tag'     => 'img',
             'img_key' => $imageKey,
             'alt'     => [
                 'tag'     => 'plain_text',
