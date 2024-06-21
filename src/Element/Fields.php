@@ -2,6 +2,7 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
+use Ritaswc\LarkCardMessageBuilder\Interfaces\FieldInterface;
 use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
 
 class Fields extends BaseElement implements TagInterface
@@ -14,7 +15,7 @@ class Fields extends BaseElement implements TagInterface
         ];
     }
 
-    public function add(BaseElement $element): Fields
+    public function add(FieldInterface $element): Fields
     {
         $this->body['fields'][] = $element;
         return $this;

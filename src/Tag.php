@@ -9,7 +9,9 @@ use Ritaswc\LarkCardMessageBuilder\Element\Column;
 use Ritaswc\LarkCardMessageBuilder\Element\ColumnSet;
 use Ritaswc\LarkCardMessageBuilder\Element\DatePicker;
 use Ritaswc\LarkCardMessageBuilder\Element\DivMarkdown;
+use Ritaswc\LarkCardMessageBuilder\Element\FieldMarkdown;
 use Ritaswc\LarkCardMessageBuilder\Element\Fields;
+use Ritaswc\LarkCardMessageBuilder\Element\FieldText;
 use Ritaswc\LarkCardMessageBuilder\Element\Hr;
 use Ritaswc\LarkCardMessageBuilder\Element\Image;
 use Ritaswc\LarkCardMessageBuilder\Element\Markdown;
@@ -116,4 +118,15 @@ class Tag
     {
         return new Text($text);
     }
+
+    public static function fieldMarkdown(string $content): FieldMarkdown
+    {
+        return new FieldMarkdown($content);
+    }
+
+    public static function fieldText(string $content): FieldText
+    {
+        return new FieldText($content);
+    }
+
 }
