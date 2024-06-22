@@ -2,9 +2,10 @@
 
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
+use Ritaswc\LarkCardMessageBuilder\Interfaces\FieldInterface;
 use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
 
-class Markdown extends BaseElement implements TagInterface
+class Markdown extends BaseElement implements FieldInterface, TagInterface
 {
     protected ?bool $isShort = null;
 
