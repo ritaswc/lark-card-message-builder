@@ -14,6 +14,7 @@ use Ritaswc\LarkCardMessageBuilder\Element\Fields;
 use Ritaswc\LarkCardMessageBuilder\Element\FieldText;
 use Ritaswc\LarkCardMessageBuilder\Element\Hr;
 use Ritaswc\LarkCardMessageBuilder\Element\Image;
+use Ritaswc\LarkCardMessageBuilder\Element\ImgCombination;
 use Ritaswc\LarkCardMessageBuilder\Element\Markdown;
 use Ritaswc\LarkCardMessageBuilder\Element\MultiUrl;
 use Ritaswc\LarkCardMessageBuilder\Element\Note;
@@ -77,6 +78,11 @@ class Tag
     public static function image(string $imageKey, string $alt): Image
     {
         return new Image($imageKey, $alt);
+    }
+
+    public static function ImgCombination(string $mode, array $imgKeys): ImgCombination
+    {
+        return new ImgCombination($mode, $imgKeys);
     }
 
     public static function markdown(string $content): Markdown
