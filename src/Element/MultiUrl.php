@@ -28,7 +28,7 @@ class MultiUrl extends BaseElement
 
     public function android(string $url): MultiUrl
     {
-        $this->body['android'] = $url;
+        $this->body['android_url'] = $url;
         return $this;
     }
 }
