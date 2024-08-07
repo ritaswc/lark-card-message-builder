@@ -3,12 +3,13 @@
 namespace Ritaswc\LarkCardMessageBuilder\Element\Chart;
 
 use Ritaswc\LarkCardMessageBuilder\Element\BaseElement;
+use Ritaswc\LarkCardMessageBuilder\Interfaces\ChartInterface;
 use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
 
 /**
  * @doc https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-components/content-components/chart
  */
-abstract class BaseChart extends BaseElement implements TagInterface
+abstract class BaseChart extends BaseElement implements ChartInterface, TagInterface
 {
     const ASPECT_RATIOS = ['1:1', '2:1', '4:3', '16:9'];
     const COLOR_THEMES  = ['brand', 'rainbow', 'complementary', 'converse', 'primary'];
