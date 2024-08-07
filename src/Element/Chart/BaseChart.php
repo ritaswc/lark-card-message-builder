@@ -84,4 +84,20 @@ abstract class BaseChart extends BaseElement implements TagInterface
         }
         return $this;
     }
+
+    /**
+     * build前校验
+     * @return array
+     */
+    public function toArray(): array
+    {
+        if (
+            !isset($this->body['chart_spec']['data']['values'])
+            ||
+            !count($this->body['chart_spec']['data']['values'])
+        ) {
+            throw new \InvalidArgumentException('必须要设置数据');
+        }
+        return parent::toArray();
+    }
 }
