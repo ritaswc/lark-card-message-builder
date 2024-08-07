@@ -5,6 +5,7 @@ namespace Ritaswc\LarkCardMessageBuilder;
 use Ritaswc\LarkCardMessageBuilder\Element\Actions;
 use Ritaswc\LarkCardMessageBuilder\Element\Button;
 use Ritaswc\LarkCardMessageBuilder\Element\ButtonConfirm;
+use Ritaswc\LarkCardMessageBuilder\Element\Chart\ChartLine;
 use Ritaswc\LarkCardMessageBuilder\Element\Column;
 use Ritaswc\LarkCardMessageBuilder\Element\ColumnSet;
 use Ritaswc\LarkCardMessageBuilder\Element\DatePicker;
@@ -135,4 +136,8 @@ class Tag
         return new FieldText($content);
     }
 
+    public static function chartLine(string $title): ChartLine
+    {
+        return new ChartLine($title);
+    }
 }
