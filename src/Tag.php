@@ -75,7 +75,7 @@ class Tag
     }
 
 
-    public static function image(string $imageKey, string $alt): Image
+    public static function image(string $imageKey, string $alt = ''): Image
     {
         return new Image($imageKey, $alt);
     }

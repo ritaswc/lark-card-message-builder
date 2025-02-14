@@ -12,7 +12,7 @@ class Image extends BaseElement implements NoteInterface, TagInterface
 {
     const MODES = ['crop_center', 'fit_horizontal', 'stretch', 'large', 'medium', 'small', 'tiny'];
 
-    public function __construct(string $imageKey, string $alt)
+    public function __construct(string $imageKey, string $alt = '')
     {
         $this->body = [
             'tag'     => 'img',

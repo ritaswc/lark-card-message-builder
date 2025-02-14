@@ -7,11 +7,7 @@ use Ritaswc\LarkCardMessageBuilder\Interfaces\TagInterface;
 
 class Markdown extends BaseElement implements FieldInterface, TagInterface
 {
-    protected ?bool $isShort = null;
-
     const TEXT_ALIGNS = ['left', 'center', 'right'];
-
-    protected $multiUrl = null;
 
     public function __construct(string $content)
     {
@@ -33,7 +29,7 @@ class Markdown extends BaseElement implements FieldInterface, TagInterface
 
     public function isShort(bool $isShort): Markdown
     {
-        $this->body['is_short'] = $this->isShort;
+        $this->body['is_short'] = $isShort;
         return $this;
     }
 
