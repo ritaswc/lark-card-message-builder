@@ -10,7 +10,6 @@ class ButtonBehaviorCallback extends BaseElement implements ButtonBehaviorInterf
     public function __construct()
     {
         $this->body['type']  = 'callback';
-        $this->body['value'] = 'callback';
     }
 
     /**
@@ -20,6 +19,9 @@ class ButtonBehaviorCallback extends BaseElement implements ButtonBehaviorInterf
      */
     public function addValue(array $values): ButtonBehaviorCallback
     {
+        if (!isset($this->body['value'])) {
+            $this->body['value'] = [];
+        }
         foreach ($values as $k => $v) {
             $this->body['value'][$k] = $v;
         }
