@@ -84,15 +84,6 @@ class Button extends BaseElement implements ActionInterface
         return $this;
     }
 
-    public function addBehaviors(ButtonBehaviorInterface $behavior): Button
-    {
-        if (!isset($this->body['behaviors'])) {
-            $this->body['behaviors'] = [];
-        }
-        $this->body['behaviors'][] = $behavior;
-        return $this;
-    }
-
     public function disabled(): Button
     {
         $this->body['disabled'] = true;
