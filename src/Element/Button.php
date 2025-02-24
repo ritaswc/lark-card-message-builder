@@ -3,7 +3,11 @@
 namespace Ritaswc\LarkCardMessageBuilder\Element;
 
 use Ritaswc\LarkCardMessageBuilder\Interfaces\ActionInterface;
+use Ritaswc\LarkCardMessageBuilder\Interfaces\ButtonBehaviorInterface;
 
+/**
+ * @doc https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-components/interactive-components/button
+ */
 class Button extends BaseElement implements ActionInterface
 {
     protected array $values = [];
@@ -37,6 +41,11 @@ class Button extends BaseElement implements ActionInterface
         return $this;
     }
 
+    /**
+     * 按钮上的文本
+     * @param string $text
+     * @return $this
+     */
     public function text(string $text): Button
     {
         $this->body['text']['content'] = $text;
@@ -75,4 +84,41 @@ class Button extends BaseElement implements ActionInterface
         return $this;
     }
 
+    public function addBehaviors(ButtonBehaviorInterface $behavior): Button
+    {
+        if (!isset($this->body['behaviors'])) {
+            $this->body['behaviors'] = [];
+        }
+        $this->body['behaviors'][] = $behavior;
+        return $this;
+    }
+
+    public function disabled(): Button
+    {
+        $this->body['disabled'] = true;
+        return $this;
+    }
+
+    public function enable(): Button
+    {
+        unset($this->body['disabled']);
+        return $this;
+    }
+
+    public function standardIcon(string $token = 'chat-forbidden_outlined', string $color = 'orange'): Button
+    {
+        unset($this->body['icon']);
+        $this->body['icon']['tag']   = 'standard_icon';
+        $this->body['icon']['token'] = $token;
+        $this->body['icon']['color'] = $color;
+        return $this;
+    }
+
+    public function imageIcon(string $imageKey): Button
+    {
+        unset($this->body['icon']);
+        $this->body['icon']['tag']     = 'custom_icon';
+        $this->body['icon']['img_key'] = $imageKey;
+        return $this;
+    }
 }
